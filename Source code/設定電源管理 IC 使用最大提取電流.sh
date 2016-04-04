@@ -6,11 +6,13 @@ readonly PROGRAM_DIRECTORY="$(dirname "$0")"
 readonly PROGRAM_ARGUMENT_ORIGINAL_LIST="$@"
 readonly PROGRAM_ARGUMENT_ORIGINAL_NUMBER=$#
 
+# 印出軟體使用幫助訊息的子程式，無任何參數
 printHelpMessage(){
 	${UTILITY_PROVIDER} printf "$PROGRAM_NAME 的使用說明：\n"
 	${UTILITY_PROVIDER} printf "	./$PROGRAM_NAME 〈要設定的電源最大提取電流（單位：豪安培(mA)）〉\n"
 }
 
+# 程式進入點，僅接受 input_new_current_ma 或 --help 選用參數
 main(){
 	source "${PROGRAM_DIRECTORY}/檢查並設定環境.source.sh"
 
