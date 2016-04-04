@@ -1,10 +1,13 @@
 #!/system/bin/sh
+# 關於前一行的 shebang：實際上它是 AOSP 所使用的 shell－－MirBSD Korn shell(mksh)，特性與 GNU Bash 略為不同
+# 請參閱 mksh(1) 的 manpage 使用手冊
+
 # Defensive Bash Programming
 # http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming/
-readonly PROGRAM_NAME="$(basename "$0")"
-readonly PROGRAM_DIRECTORY="$(dirname "$0")"
-readonly PROGRAM_ARGUMENT_ORIGINAL_LIST="$@"
-readonly PROGRAM_ARGUMENT_ORIGINAL_NUMBER=$#
+typeset -r PROGRAM_NAME="$(basename "$0")"
+typeset -r PROGRAM_DIRECTORY="$(dirname "$0")"
+typeset -r PROGRAM_ARGUMENT_ORIGINAL_LIST="$@"
+typeset -r PROGRAM_ARGUMENT_ORIGINAL_NUMBER=$#
 
 # 印出軟體使用幫助訊息的子程式，無任何參數
 printHelpMessage(){
@@ -16,9 +19,9 @@ printHelpMessage(){
 main(){
 	source "${PROGRAM_DIRECTORY}/檢查並設定環境.source.sh"
 
-	local battery_current_now_raw
-	local usb_current_max_raw
-	local input_new_current_ma
+	typeset -i10 battery_current_now_raw
+	typeset -i10 usb_current_max_raw
+	typeset -i10 input_new_current_ma
 	
 	if [ $PROGRAM_ARGUMENT_ORIGINAL_NUMBER -gt 1 ]; then
 		${UTILITY_PROVIDER} printf "錯誤：命令格式錯誤！\n" 1>&2

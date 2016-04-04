@@ -11,6 +11,9 @@ An application to manage your Android® mobile devices' power related functional
 （待補）
 
 ## 進行本軟體的開發需要的軟體<br />Dependencies for Development of This Software
+### MirBSD Korn shell(mksh)
+Android 所使用的殼程式，若您需要於本機中測試執行[來源程式碼/](來源程式碼)中的腳本程式的話您需要安裝本軟體
+
 ### Bash 殼程式（選用）<br>Bash shell(optional)
 主要用於[專案會用到的工具/](Tools/) 目錄內的腳本程式
 
