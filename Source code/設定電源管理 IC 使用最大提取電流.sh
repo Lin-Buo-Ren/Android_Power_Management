@@ -31,7 +31,7 @@ main(){
 		#	${UTILITY_PROVIDER} printf "請輸入您的電源的最大輸出電流（單位：mA）（警告：輸入超過您的電源的最大輸出電流的電流量將可能造成電源過熱起火！請參閱您的電源的可輸出電流量標示）："
 		#	read input_new_current_ma
 		
-		# Manually override profiles
+		### Manually override profiles ###
 		#input_new_current_ma=2500 # 不實際的上限
 		#input_new_current_ma=2000 # 2A
 		#input_new_current_ma=1000 # 1A
