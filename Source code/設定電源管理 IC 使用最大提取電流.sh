@@ -39,6 +39,11 @@ main(){
 		input_new_current_ma=900 # USB 3.0 上限
 		#input_new_current_ma=500 # USB 2.0 上限
 	fi
+	
+	if [ input_new_current_ma = "" ]; then
+		${UTILITY_PROVIDER} printf "錯誤：欲設定之最大提取電流格式錯誤！\n" 1>&2
+		exit 1
+	fi
 
 	battery_current_now_raw=$(cat /sys/class/power_supply/battery/current_now)
 	if [ $? -ne 0 ]; then
